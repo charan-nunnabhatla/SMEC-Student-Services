@@ -24,7 +24,7 @@ class StMarysState extends State<StMarys> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      darkTheme: ThemeData.dark(useMaterial3: true),
+      // darkTheme: ThemeData.dark(useMaterial3: true) kljdf,
       debugShowCheckedModeBanner: false,
       home: StudentServices(),
     );
