@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:stmarys/pages/service_iteam.dart';
 import 'package:stmarys/widgets/app_widgets.dart';
 
+import 'package:stmarys/services_pages/bonafied_page.dart';
+import 'package:stmarys/services_pages/certificates.dart';
+import 'package:stmarys/services_pages/check_fee.dart';
+import 'package:stmarys/services_pages/complaints.dart';
+import 'package:stmarys/services_pages/hostel.dart';
+import 'package:stmarys/services_pages/others.dart';
+import 'package:stmarys/services_pages/take_leave.dart';
+
 class StudentServices extends StatefulWidget {
+  const StudentServices({super.key});
+
   @override
   State<StudentServices> createState() => _StudentServicesState();
 }
@@ -25,10 +34,10 @@ class _StudentServicesState extends State<StudentServices> {
         //   title: const Text('Select Service'),
         // ),
         body: Column(
-          // mainAxisAlignment: MainAxisAlignment.center,
-          // crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const SizedBox(height: 50,),
+            const SizedBox(
+              height: 40,
+            ),
             Row(
               children: [
                 Padding(
@@ -66,28 +75,94 @@ class _StudentServicesState extends State<StudentServices> {
             const SizedBox(
               height: 40,
             ),
-            const SizedBox(
-              height: 20,
-            ),
             Expanded(
               child: ListView.builder(
                   itemCount: servicesList.length,
                   itemBuilder: (context, index) {
                     return GestureDetector(
                       onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (_) => ServiceItem(
-                              service: servicesList.elementAtOrNull(index),
-                            ),
-                          ),
-                        );
+                        switch (index) {
+                          case 0:
+                            // bonafied
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) => const BonafiedPage(
+                                  title: 'Bonafied',
+                                ),
+                              ),
+                            );
+                            break;
+                          case 1:
+                            // fee due
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) => const CheckFee(
+                                  title: 'Fee Due',
+                                ),
+                              ),
+                            );
+                            break;
+                          case 2:
+                            //leave
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) => const TakeLeave(
+                                  title: 'Leave',
+                                ),
+                              ),
+                            );
+                            break;
+                          case 3:
+                            //certificates
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) => const Certificate(
+                                  title: 'Certificate',
+                                ),
+                              ),
+                            );
+                            break;
+                          case 4:
+                            //hostel
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) => const Hostel(
+                                  title: 'Hostel',
+                                ),
+                              ),
+                            );
+                            break;
+                          case 5:
+                            //complaint
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) => const Complaints(
+                                  title: 'Complaints',
+                                ),
+                              ),
+                            );
+                            break;
+                          case 6:
+                            //others
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) => const Others(
+                                  title: 'Others',
+                                ),
+                              ),
+                            );
+                            break;
+                        }
                       },
-                      child: cardWidget(
-                        servicesList.elementAt(index),
-                        index+1
-                      ),
+                      child:
+                          cardWidget(servicesList.elementAt(index), index + 1),
                     );
                   }),
             ),
