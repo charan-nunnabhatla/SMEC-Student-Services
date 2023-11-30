@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:stmarys/widgets/app_widgets.dart';
-import 'package:stmarys/widgets/details_model.dart';
 
 class BonafiedPage extends StatefulWidget {
   final String title;
