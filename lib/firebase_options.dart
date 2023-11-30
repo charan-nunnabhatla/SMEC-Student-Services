@@ -23,9 +23,15 @@ class DefaultFirebaseOptions {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
-        return ios;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for ios - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.macOS:
-        return macos;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for macos - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -59,23 +65,5 @@ class DefaultFirebaseOptions {
     messagingSenderId: '806135139476',
     projectId: 'stmarys-f1b9d',
     storageBucket: 'stmarys-f1b9d.appspot.com',
-  );
-
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCYIC1yrpDzCINM2dkc0pDdNFzJ-_5vuEo',
-    appId: '1:806135139476:ios:99e7524478129432cb3881',
-    messagingSenderId: '806135139476',
-    projectId: 'stmarys-f1b9d',
-    storageBucket: 'stmarys-f1b9d.appspot.com',
-    iosBundleId: 'com.example.stmarys',
-  );
-
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyCYIC1yrpDzCINM2dkc0pDdNFzJ-_5vuEo',
-    appId: '1:806135139476:ios:adaa5b20c7e5bfedcb3881',
-    messagingSenderId: '806135139476',
-    projectId: 'stmarys-f1b9d',
-    storageBucket: 'stmarys-f1b9d.appspot.com',
-    iosBundleId: 'com.example.stmarys.RunnerTests',
   );
 }
