@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:stmarys/widgets/app_widgets.dart';
 
@@ -13,8 +14,8 @@ class _BonafiedPageState extends State<BonafiedPage> {
   TextEditingController bonafiedController = TextEditingController();
   TextEditingController reasonController = TextEditingController();
   bool show = false;
-  Map details = {};
-  late Map<String, dynamic> model;
+  late Map<String, dynamic> details;
+  final db = FirebaseFirestore.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -26,14 +27,20 @@ class _BonafiedPageState extends State<BonafiedPage> {
           textFeild(reasonController, 'Reason', false,
               maxlines: 1, maxLength: null, upperCase: false),
           ElevatedButton(
-              onPressed: () async {
-                model = await readCSV(bonafiedController.text);
-                setState(() {
-                  show = true;
-                });
-              },
-              child: Text('Done')),
-          show ? table(model) : Text('No Details found...')
+            onPressed: () async {
+              details = await readCSV(bonafiedController.text);
+              db.collection('bonafied').doc('details').set(details).onError(
+                (error, stackTrace) {
+                  print(error);
+                },
+              );
+              setState(() {
+                show = true;
+              });
+            },
+            child: const Text('Done'),
+          ),
+          show ? table(details) : const Text('No Details found...')
         ],
       ),
     );
