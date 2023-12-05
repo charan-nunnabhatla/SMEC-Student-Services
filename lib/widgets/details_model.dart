@@ -1,3 +1,6 @@
+import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+
 class DetailsModel {
   final String name;
   final String gender;
@@ -24,6 +27,8 @@ class DetailsModel {
   });
 
   Map<String, dynamic> toMap() {
+    final now = DateTime.now();
+    String date = DateFormat('dd MMMM yyyy HH:mm:ss').format(now);
     return <String, dynamic>{
       'name': name,
       'gender': gender,
@@ -34,7 +39,8 @@ class DetailsModel {
       'course': course,
       'hallticket': hallticket,
       'mobile': moblie,
-      'joining': joining
+      'joining': joining,
+      'time': date
     };
   }
 }
