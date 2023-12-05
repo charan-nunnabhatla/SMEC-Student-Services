@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stmarys/widgets/app_widgets.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'package:stmarys/services_pages/bonafied_page.dart';
 import 'package:stmarys/services_pages/certificates.dart';
@@ -17,15 +18,16 @@ class StudentServices extends StatefulWidget {
 }
 
 class _StudentServicesState extends State<StudentServices> {
+  final db = FirebaseFirestore.instance;
   @override
   Widget build(BuildContext context) {
     List servicesList = [
-      'Bonafied',
-      'Check Fee Dues',
-      'Take Leave',
-      'Certificates',
-      'Hostel',
-      'Complaint',
+      'Bonafied Request',
+      'Fee Dues',
+      'Leave Permission',
+      'Certificate Inquiries',
+      'College Hostel',
+      'Complaints',
       'Others'
     ];
     return SafeArea(
