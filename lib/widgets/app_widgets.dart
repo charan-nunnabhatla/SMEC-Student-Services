@@ -24,7 +24,7 @@ Widget table(Map<String, dynamic> mapData) {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                value,
+                value.toString(),
                 style: const TextStyle(
                     fontWeight: FontWeight.bold, color: Color(0xffbeffc7)),
               ),
@@ -57,16 +57,17 @@ Future<Map<String, dynamic>> readCSV(String hallticket) async {
   for (var student in csvTable) {
     if (student.contains(hallticket)) {
       data = DetailsModel(
-          name: student.elementAt(0),
-          gender: student.elementAt(1),
-          category: student.elementAt(2),
-          state: student.elementAt(3),
-          nationality: student.elementAt(4),
-          email: student.elementAt(5),
-          course: student.elementAt(6),
-          hallticket: student.elementAt(7),
-          moblie: student.elementAt(8).toString(),
-          joining: student.elementAt(9));
+        name: student.elementAt(0),
+        gender: student.elementAt(1),
+        category: student.elementAt(2),
+        state: student.elementAt(3),
+        nationality: student.elementAt(4),
+        email: student.elementAt(5),
+        course: student.elementAt(6),
+        hallticket: student.elementAt(7),
+        moblie: student.elementAt(8).toString(),
+        joining: student.elementAt(9),
+      );
       break;
     }
   }
