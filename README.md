@@ -1,4 +1,3 @@
-(Pending)
 
 #Introducing "SMEC Student Services" - Your Gateway to Seamless Campus Services
 
